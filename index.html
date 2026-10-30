@@ -3,427 +3,738 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Amjad Ali, Mobile Engineer (React Native, iOS, Android)</title>
-<meta name="description" content="Amjad Ali is a senior mobile engineer in Lahore, Pakistan. React Native, Swift and Kotlin apps, built and released to the App Store and Play Store. Open to remote, hybrid and onsite roles.">
-<meta property="og:title" content="Amjad Ali, Mobile Engineer">
-<meta property="og:description" content="React Native, iOS and Android apps, built and shipped to the App Store and Play Store.">
+<title>Amjad Ali, Senior Mobile Engineer</title>
+<meta name="description" content="Amjad Ali, senior mobile engineer. React Native, Swift and Kotlin apps built and shipped to the App Store and Google Play. Open to remote, hybrid and onsite roles.">
+<meta property="og:title" content="Amjad Ali, Senior Mobile Engineer">
+<meta property="og:description" content="8 live apps on iOS and Android. Namaz has 100,000+ downloads.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F3F5F2;
-    --surface: #FFFFFF;
-    --ink: #17201B;
-    --muted: #56625B;
-    --line: #D5DBD6;
-    --live: #1E7A4C;
-    --live-soft: #DCEFE4;
-    --review: #B87A0A;
-    --review-soft: #F6EBD3;
-    --display: "Bricolage Grotesque", system-ui, sans-serif;
-    --body: "Instrument Sans", system-ui, sans-serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #121915;
-      --surface: #1A231E;
-      --ink: #E8EEEA;
-      --muted: #9FADA5;
-      --line: #2C3832;
-      --live: #4CC488;
-      --live-soft: #173A28;
-      --review: #E5AE45;
-      --review-soft: #3A2E15;
-    }
+    --bg: #0C1124;
+    --bg-2: #111833;
+    --surface: #161F40;
+    --surface-2: #1C2650;
+    --line: #2A3566;
+    --text: #EEF1FA;
+    --muted: #A2ABCB;
+    --violet: #8C7BFF;
+    --violet-deep: #5B47E0;
+    --mint: #43D9BD;
+    --display: "Unbounded", system-ui, sans-serif;
+    --body: "DM Sans", system-ui, sans-serif;
+    --radius-lg: 28px;
+    --radius-md: 18px;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
+  img { max-width: 100%; display: block; }
   a { color: inherit; }
-  :focus-visible { outline: 3px solid var(--live); outline-offset: 3px; border-radius: 4px; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  :focus-visible { outline: 3px solid var(--mint); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { margin: 0; }
+  .section { padding: 110px 0; scroll-margin-top: 72px; }
+  .section-head { max-width: 640px; margin-bottom: 56px; }
+  .section-head h2 {
+    font-family: var(--display); font-weight: 600; font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    line-height: 1.12; letter-spacing: -0.02em;
+  }
+  .section-head p { color: var(--muted); margin: 16px 0 0; font-size: 1.1rem; }
 
   /* Nav */
-  .nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
-  .nav .name { font-family: var(--display); font-weight: 700; font-size: 1.15rem; text-decoration: none; }
-  .nav ul { list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; }
+  .nav {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; }
+  .avatar-sm { position: relative; width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, var(--violet), var(--mint)); display: grid; place-items: center; font-family: var(--display); font-size: 0.8rem; color: #0C1124; }
+  .avatar-sm img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; position: absolute; inset: 0; transform: scale(1.8); transform-origin: 50% 24%; }
+  .nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
   .nav ul a { text-decoration: none; color: var(--muted); font-weight: 500; }
-  .nav ul a:hover { color: var(--ink); }
+  .nav ul a:hover { color: var(--text); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px;
+    font-weight: 600; text-decoration: none; border: 1.5px solid transparent; cursor: pointer;
+    font-family: var(--body); font-size: 1rem; transition: transform .15s, background .2s, border-color .2s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--violet); color: #fff; }
+  .btn-primary:hover { background: var(--violet-deep); }
+  .btn-outline { border-color: var(--line); color: var(--text); background: transparent; }
+  .btn-outline:hover { border-color: var(--violet); }
+  .btn-sm { padding: 9px 18px; font-size: 0.95rem; }
 
   /* Hero */
-  .hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: center; padding: 56px 0 96px; }
+  .hero { position: relative; padding: 70px 0 100px; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -20% -10% auto auto; width: 820px; height: 820px;
+    background: radial-gradient(circle at center, color-mix(in srgb, var(--violet) 32%, transparent), transparent 62%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: ""; position: absolute; left: -200px; bottom: -260px; width: 620px; height: 620px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--mint) 16%, transparent), transparent 65%);
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 12px; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--line); font-weight: 500; font-size: 0.95rem;
+  }
+  .live-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px color-mix(in srgb, var(--mint) 22%, transparent); }
   .hero h1 {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(2.6rem, 6vw, 4.6rem);
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-    margin: 0 0 24px;
+    font-family: var(--display); font-weight: 700; font-size: clamp(2.4rem, 5.4vw, 4.3rem);
+    line-height: 1.04; letter-spacing: -0.035em; margin: 26px 0 22px;
   }
-  .hero p.lede { font-size: 1.2rem; color: var(--muted); max-width: 34em; margin: 0 0 32px; }
-  .status-line { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; margin-bottom: 28px; }
-  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--live); box-shadow: 0 0 0 4px var(--live-soft); flex: none; }
-  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-block; padding: 14px 22px; border-radius: 999px; font-weight: 600;
-    text-decoration: none; border: 2px solid var(--ink);
+  .hero h1 .grad {
+    background: linear-gradient(100deg, var(--violet) 10%, var(--mint) 90%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .btn.primary { background: var(--ink); color: var(--paper); }
-  .btn.primary:hover { background: var(--live); border-color: var(--live); }
-  .btn.ghost:hover { border-color: var(--live); color: var(--live); }
+  .hero .role { font-size: 1.15rem; font-weight: 600; color: var(--text); margin: 0 0 10px; }
+  .hero .lede { color: var(--muted); font-size: 1.12rem; max-width: 33em; margin: 0 0 32px; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .stats { display: grid; grid-template-columns: repeat(4, auto); gap: 30px; margin-top: 48px; justify-content: start; }
+  .stat b { display: block; font-family: var(--display); font-size: 1.7rem; font-weight: 600; letter-spacing: -0.02em; }
+  .stat span { color: var(--muted); font-size: 0.92rem; }
 
-  /* Release card: the one memorable element */
-  .release {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 28px;
-    padding: 28px;
-    max-width: 380px;
-    justify-self: end;
-    width: 100%;
+  /* Hero screenshots */
+  .hero-shots { position: relative; height: 600px; }
+  .hero-shots img {
+    position: absolute; height: 500px; width: auto; border-radius: 26px;
+    box-shadow: 0 40px 80px -24px rgba(3, 6, 20, 0.8), 0 0 0 1px rgba(255,255,255,0.08);
   }
-  .release h2 { font-family: var(--display); font-size: 1.05rem; font-weight: 700; margin: 0 0 4px; }
-  .release .sub { color: var(--muted); font-size: 0.92rem; margin: 0 0 22px; }
-  .release ol { list-style: none; margin: 0; padding: 0; position: relative; }
-  .release ol::before {
-    content: ""; position: absolute; left: 13px; top: 14px; bottom: 14px; width: 2px; background: var(--line);
+  .hero-shots .h1 { left: 2%; top: 70px; transform: rotate(-8deg); z-index: 1; }
+  .hero-shots .h2 { left: 30%; top: 20px; z-index: 3; height: 540px; }
+  .hero-shots .h3 { right: 0; top: 70px; transform: rotate(8deg); z-index: 2; }
+  .float-card {
+    position: absolute; z-index: 4; background: rgba(22, 31, 64, 0.9); border: 1px solid var(--line);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px; padding: 12px 16px; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 20px 40px -18px rgba(0,0,0,0.6); font-size: 0.92rem;
   }
-  .release li { position: relative; display: grid; grid-template-columns: 28px 1fr auto; gap: 14px; align-items: center; padding: 12px 0; }
-  .release .marker {
-    width: 28px; height: 28px; border-radius: 50%; background: var(--surface); border: 2px solid var(--line);
-    display: grid; place-items: center; z-index: 1; transition: background .3s, border-color .3s;
+  .float-card b { display: block; font-size: 1.05rem; }
+  .float-card small { color: var(--muted); }
+  .float-card .ic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; flex: none; }
+  .fc1 { left: -10px; bottom: 40px; }
+  .fc2 { right: -10px; bottom: 110px; }
+  .fc1 .ic { background: color-mix(in srgb, var(--mint) 20%, transparent); color: var(--mint); }
+  .fc2 .ic { background: color-mix(in srgb, var(--violet) 25%, transparent); color: var(--violet); }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-shots img, .float-card { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+    .hero-shots .h1 { animation-delay: .25s; } .hero-shots .h2 { animation-delay: .1s; } .hero-shots .h3 { animation-delay: .4s; }
+    .fc1 { animation-delay: .8s; } .fc2 { animation-delay: 1s; }
+    @keyframes rise { from { opacity: 0; translate: 0 50px; } to { opacity: 1; translate: 0 0; } }
   }
-  .release .marker svg { width: 14px; height: 14px; opacity: 0; transition: opacity .3s; }
-  .release .step { font-weight: 600; line-height: 1.3; }
-  .release .step small { display: block; font-weight: 400; color: var(--muted); font-size: 0.86rem; }
-  .release .tag { font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; color: var(--muted); background: var(--paper); transition: background .3s, color .3s; }
-  .release li.done .marker { background: var(--live); border-color: var(--live); }
-  .release li.done .marker svg { opacity: 1; }
-  .release li.done .tag { background: var(--live-soft); color: var(--live); }
-  .release li.active .marker { border-color: var(--review); }
-  .release li.active .tag { background: var(--review-soft); color: var(--review); }
 
-  /* Sections */
-  section.block { padding: 88px 0; border-top: 1px solid var(--line); }
-  .block-head { display: grid; grid-template-columns: 1fr 2fr; gap: 56px; }
-  .block-head h2 {
-    font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 3.4vw, 2.5rem);
-    line-height: 1.1; letter-spacing: -0.02em; margin: 0;
+  /* Project screenshot gallery */
+  .gallery {
+    display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 14px;
+    border-radius: 22px; scrollbar-width: thin; scrollbar-color: var(--line) transparent;
   }
-  .block-head .intro { color: var(--muted); max-width: 36em; margin: 8px 0 0; }
+  .gallery img {
+    height: 440px; width: auto; flex: none; border-radius: 18px; scroll-snap-align: start;
+    border: 1px solid var(--line); background: var(--bg);
+  }
+  .app-title { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+  .app-title img { width: 52px; height: 52px; border-radius: 14px; flex: none; box-shadow: 0 6px 16px -6px rgba(0,0,0,.5); }
 
-  /* Work */
-  .work { list-style: none; margin: 0; padding: 0; }
-  .work li { display: grid; grid-template-columns: 18px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
-  .work li:first-child { padding-top: 0; }
-  .work .dot { margin-top: 9px; }
-  .work h3 { font-family: var(--display); font-size: 1.3rem; font-weight: 700; margin: 0 0 4px; line-height: 1.25; }
-  .work p { margin: 0 0 10px; color: var(--muted); max-width: 40em; }
-  .stack { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
-  .links { display: flex; gap: 18px; margin: 12px 0 0; }
-  .links a { font-weight: 600; color: var(--live); text-underline-offset: 3px; }
-  .work p.stat { color: var(--ink); font-weight: 600; margin: 0 0 4px; }
-  .stack li { all: unset; font-size: 0.84rem; font-weight: 500; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); }
+  /* Expertise */
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .x-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md);
+    padding: 26px 24px; transition: border-color .2s, transform .2s;
+  }
+  .x-card:hover { border-color: var(--violet); transform: translateY(-3px); }
+  .x-card .ic {
+    width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 18px;
+    background: color-mix(in srgb, var(--violet) 18%, transparent); color: var(--violet);
+  }
+  .x-card:nth-child(even) .ic { background: color-mix(in srgb, var(--mint) 16%, transparent); color: var(--mint); }
+  .x-card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; }
+  .x-card p { margin: 0; color: var(--muted); font-size: 0.97rem; line-height: 1.55; }
 
-  /* Approach */
-  .approach { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 48px; margin: 0; padding: 0; list-style: none; }
-  .approach h3 { font-family: var(--display); font-size: 1.2rem; font-weight: 700; margin: 0 0 6px; }
-  .approach p { margin: 0; color: var(--muted); }
+  /* About */
+  .about { background: var(--bg-2); }
+  .about .wrap { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 72px; align-items: center; }
+  .portrait {
+    position: relative; aspect-ratio: 4 / 5; border-radius: 32px; overflow: hidden; max-width: 420px;
+    background: linear-gradient(150deg, var(--violet-deep), #241B6B 55%, #0F4F4A);
+    display: grid; place-items: center;
+  }
+  .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .portrait .initials { font-family: var(--display); font-size: 5rem; font-weight: 700; color: rgba(255,255,255,0.9); letter-spacing: 0.04em; }
+  .portrait-wrap { position: relative; }
+  .portrait-badge {
+    position: absolute; right: -10px; bottom: 30px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 16px; padding: 14px 18px; box-shadow: 0 20px 40px -18px rgba(0,0,0,0.6);
+  }
+  .portrait-badge b { font-family: var(--display); font-size: 1.5rem; display: block; }
+  .portrait-badge small { color: var(--muted); }
+  .about h2 { font-family: var(--display); font-weight: 600; font-size: clamp(1.8rem, 3.2vw, 2.5rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 22px; }
+  .about p { color: var(--muted); margin: 0 0 16px; max-width: 36em; }
+  .about p strong { color: var(--text); font-weight: 600; }
+  .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 30px; margin-top: 28px; padding: 0; list-style: none; }
+  .facts li { display: flex; gap: 10px; align-items: baseline; }
+  .facts li span { color: var(--muted); min-width: 92px; font-size: 0.95rem; }
+  .facts li b { font-weight: 600; }
 
-  /* Services + skills */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-  .services { margin: 0; padding: 0; list-style: none; }
-  .services li { padding: 12px 0; border-bottom: 1px solid var(--line); font-weight: 500; }
-  .skills h3 { font-family: var(--display); font-size: 1.05rem; font-weight: 700; margin: 0 0 10px; }
-  .skills div + div { margin-top: 24px; }
+  /* Skills */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .skill-group { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 24px; }
+  .skill-group h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+  .chips li { padding: 6px 13px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font-size: 0.9rem; font-weight: 500; }
 
-  /* Experience */
-  .timeline { margin: 0; padding: 0; list-style: none; }
-  .timeline li { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
-  .timeline li:first-child { padding-top: 0; }
-  .timeline time { color: var(--muted); font-weight: 500; }
-  .timeline h3 { font-family: var(--display); font-size: 1.2rem; font-weight: 700; margin: 0; }
-  .timeline .org { color: var(--muted); margin: 0 0 8px; }
-  .timeline p { margin: 0; max-width: 40em; }
+  /* Journey */
+  .journey { position: relative; max-width: 860px; }
+  .journey::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--violet), var(--mint)); opacity: 0.5; }
+  .j-item { position: relative; padding: 0 0 44px 52px; }
+  .j-item:last-child { padding-bottom: 0; }
+  .j-item::before { content: ""; position: absolute; left: 3px; top: 6px; width: 18px; height: 18px; border-radius: 50%; background: var(--bg); border: 3px solid var(--violet); }
+  .j-item.now::before { border-color: var(--mint); box-shadow: 0 0 0 5px color-mix(in srgb, var(--mint) 20%, transparent); }
+  .j-item time { color: var(--mint); font-weight: 600; font-size: 0.95rem; }
+  .j-item h3 { font-size: 1.25rem; font-weight: 700; margin: 4px 0 2px; }
+  .j-item .org { color: var(--muted); margin: 0 0 12px; }
+  .j-item ul { margin: 0; padding-left: 18px; color: var(--muted); }
+  .j-item li { margin-bottom: 6px; }
+  .j-item li::marker { color: var(--violet); }
 
+  /* Projects */
+  .projects { background: var(--bg-2); }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: -24px 0 40px; }
+  .filters button {
+    font-family: var(--body); font-size: 0.97rem; font-weight: 600; cursor: pointer;
+    padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--muted);
+  }
+  .filters button:hover { color: var(--text); }
+  .filters button[aria-pressed="true"] { background: var(--violet); border-color: var(--violet); color: #fff; }
+  .project-list { display: grid; gap: 26px; }
+  .project {
+    display: grid; grid-template-columns: 1.05fr 1fr; gap: 44px; align-items: center;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: 40px 48px; overflow: hidden; position: relative;
+  }
+  .project[hidden] { display: none; }
+  .project.solo { grid-template-columns: 1fr; }
+  .project .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .tag { font-size: 0.82rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; background: color-mix(in srgb, var(--violet) 18%, transparent); color: #C6BEFF; }
+  .tag.m { background: color-mix(in srgb, var(--mint) 15%, transparent); color: var(--mint); }
+  .project h3 { font-family: var(--display); margin: 0; font-weight: 600; font-size: clamp(1.6rem, 2.6vw, 2.1rem); letter-spacing: -0.02em; margin-bottom: 6px; }
+  .project .what { font-size: 1.12rem; color: var(--text); margin: 0 0 18px; font-weight: 500; }
+  .project .metric { display: inline-flex; align-items: baseline; gap: 10px; margin: 0 0 18px; padding: 10px 16px; border-radius: 14px; background: color-mix(in srgb, var(--mint) 12%, transparent); border: 1px solid color-mix(in srgb, var(--mint) 35%, transparent); }
+  .project .metric b { font-family: var(--display); font-size: 1.4rem; color: var(--mint); }
+  .project .metric span { color: var(--text); font-size: 0.95rem; }
+  .project ul.points { margin: 0 0 22px; padding-left: 18px; color: var(--muted); }
+  .project ul.points li { margin-bottom: 6px; }
+  .project .stack-label { font-size: 0.9rem; color: var(--muted); margin: 0 0 8px; }
+  .project .chips li { font-size: 0.84rem; padding: 4px 11px; }
+  .stores { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .store {
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none; padding: 9px 16px 9px 13px;
+    border-radius: 12px; background: #fff; color: #0C1124; font-weight: 600; font-size: 0.92rem; transition: transform .15s;
+  }
+  .store:hover { transform: translateY(-2px); }
+  .store svg { width: 20px; height: 20px; }
+  .store small { display: block; font-size: 0.68rem; font-weight: 500; opacity: 0.7; line-height: 1; }
+  .store span { line-height: 1.15; }
+
+  .more-title { font-family: var(--display); font-weight: 600; font-size: 1.4rem; margin: 64px 0 20px; }
+  .more-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .mini { display: flex; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 24px; }
+  .mini-ic { width: 52px; height: 52px; border-radius: 14px; flex: none; }
+  .mini-ic.kinde { display: grid; place-items: center; background: var(--surface-2); border: 1px solid var(--line); color: var(--text); }
+  .mini h4 { margin: 0 0 6px; font-size: 1.15rem; }
+  .mini h4 span { font-size: .78rem; font-weight: 600; margin-left: 8px; padding: 3px 10px; border-radius: 999px; background: color-mix(in srgb, var(--mint) 15%, transparent); color: var(--mint); vertical-align: middle; }
+  .mini p { margin: 0; color: var(--muted); font-size: .97rem; }
+  .mini-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px !important; }
+  .mini-links a { color: var(--violet); font-weight: 600; text-underline-offset: 3px; }
+  .app-title img + img { position: relative; }
   /* Contact */
-  .contact { background: var(--ink); color: var(--paper); border-radius: 32px; padding: 64px 56px; margin: 0 0 64px; }
-  .contact h2 { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 16px; max-width: 16em; }
-  .contact p { color: color-mix(in srgb, var(--paper) 75%, var(--ink)); max-width: 36em; margin: 0 0 32px; }
-  .contact .btn.primary { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-  .contact .btn.primary:hover { background: var(--live-soft); border-color: var(--live-soft); }
-  .contact .btn.ghost { border-color: color-mix(in srgb, var(--paper) 40%, var(--ink)); }
-  .contact .btn.ghost:hover { border-color: var(--paper); color: var(--paper); }
-  .contact dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 20px; margin: 36px 0 0; }
-  .contact dt { color: color-mix(in srgb, var(--paper) 60%, var(--ink)); }
-  .contact dd { margin: 0; }
-  .contact dd a { text-decoration-color: color-mix(in srgb, var(--paper) 40%, var(--ink)); text-underline-offset: 3px; }
-
-  footer { padding: 0 0 40px; color: var(--muted); font-size: 0.92rem; }
-
-  @media (max-width: 860px) {
-    .hero, .block-head, .two-col { grid-template-columns: 1fr; gap: 36px; }
-    .hero { padding: 24px 0 72px; }
-    .release { justify-self: start; }
-    .approach { grid-template-columns: 1fr; }
-    .timeline li { grid-template-columns: 1fr; gap: 4px; }
-    .nav ul { display: none; }
-    .contact { padding: 44px 28px; border-radius: 24px; }
-    section.block { padding: 64px 0; }
+  .contact .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; }
+  .contact h2 { font-family: var(--display); font-weight: 600; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 18px; }
+  .contact .intro { color: var(--muted); margin: 0 0 32px; max-width: 30em; }
+  .c-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .c-list li { display: flex; align-items: center; gap: 14px; }
+  .c-list .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); display: grid; place-items: center; color: var(--violet); flex: none; }
+  .c-list small { display: block; color: var(--muted); font-size: 0.85rem; }
+  .c-list a { text-decoration: none; font-weight: 600; }
+  .c-list a:hover { color: var(--mint); }
+  form.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 34px; display: grid; gap: 16px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  label { display: grid; gap: 7px; font-weight: 600; font-size: 0.93rem; }
+  input, select, textarea {
+    font: inherit; font-weight: 400; color: var(--text); background: var(--bg); border: 1px solid var(--line);
+    border-radius: 12px; padding: 13px 14px; width: 100%;
   }
-  @media (max-width: 400px) { .wrap { padding: 0 16px; } }
-  @media (prefers-reduced-motion: reduce) {
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 3px color-mix(in srgb, var(--violet) 30%, transparent); }
+  textarea { min-height: 130px; resize: vertical; }
+  .form-note { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 0.93rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  /* Responsive */
+  @media (max-width: 1020px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .project { grid-template-columns: 1fr; padding: 32px; gap: 28px; }
+    @media (max-width: 860px) {
+    .nav ul { display: none; }
+    .hero .wrap, .about .wrap, .contact .wrap { grid-template-columns: 1fr; }
+    .hero { padding-top: 40px; }
+    .hero-shots { height: 440px; max-width: 520px; margin: 0 auto; width: 100%; }
+    .hero-shots img { height: 340px; } .hero-shots .h2 { height: 370px; left: 28%; }
+    .fc2 { top: auto; bottom: 0; right: 0; }
+    .fc1 { bottom: 70px; left: 0; }
+    .stats { grid-template-columns: repeat(2, auto); gap: 22px 40px; }
+    .about .wrap { gap: 44px; }
+    .portrait { max-width: 340px; }
+    .section { padding: 80px 0; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    .grid-4, .skills-grid, .facts, .more-grid { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 1fr; }
+    .project { padding: 22px 18px; border-radius: 22px; }
+    @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .release * { transition: none !important; }
+    * { transition: none !important; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav class="nav" aria-label="Main">
-    <a class="name" href="#top">Amjad Ali</a>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="avatar-sm"><img src="photo.jpg" alt="" onerror="this.remove()">AA</span>
+      Amjad Ali
+    </a>
     <ul>
-      <li><a href="#work">Apps</a></li>
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#journey">Experience</a></li>
     </ul>
-  </nav>
+    <a class="btn btn-primary btn-sm" href="#contact">Hire me</a>
+  </div>
+</nav>
 
-  <header class="hero" id="top">
+<header class="hero" id="top">
+  <div class="wrap">
     <div>
-      <div class="status-line"><span class="dot" aria-hidden="true"></span>Open to remote, hybrid and onsite roles</div>
-      <h1>I build mobile apps and get them through store review.</h1>
-      <p class="lede">I'm a senior mobile engineer in Lahore, Pakistan, working with teams worldwide. Cross-platform in React Native and Expo, native iOS in Swift, native Android in Kotlin. I take apps from architecture to the App Store and Play Store, and keep them stable after launch. My prayer-times app, Namaz, has passed 100,000 downloads.</p>
+      <span class="pill"><span class="live-dot" aria-hidden="true"></span>Open to remote, hybrid and onsite roles</span>
+      <h1>Mobile apps that make it to the store, and <span class="grad">stay there.</span></h1>
+      <p class="role">Senior Mobile Engineer · React Native · iOS · Android</p>
+      <p class="lede">I'm Amjad. For 6+ years I've built iOS and Android apps in React Native, Swift and Kotlin, and taken them from first screen to App Store and Google Play release.</p>
       <div class="actions">
-        <a class="btn primary" href="mailto:amjadalikhokhar999@gmail.com?subject=Let%27s%20talk%20about%20a%20mobile%20project">Email me</a>
-        <a class="btn ghost" href="#work">See my apps</a>
+        <a class="btn btn-primary" href="#projects">See my apps</a>
+        <a class="btn btn-outline" href="resume.pdf" target="_blank" rel="noopener">Download resume</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>6+</b><span>Years shipping apps</span></div>
+        <div class="stat"><b>8</b><span>Live apps below</span></div>
+        <div class="stat"><b>2</b><span>Apps with 100K+ downloads</span></div>
+        <div class="stat"><b>iOS + Android</b><span>Cross-platform and native</span></div>
       </div>
     </div>
 
-    <aside class="release" aria-label="How I take an app from build to live: build, test, store review, live on both stores">
-      <h2>Release pipeline</h2>
-      <p class="sub">The part of the job I own, start to finish</p>
-      <ol id="pipeline">
-        <li><span class="marker"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.5l2.5 2.5L11 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="step">Build<small>Codemagic CI/CD</small></span><span class="tag">Waiting</span></li>
-        <li><span class="marker"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.5l2.5 2.5L11 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="step">Test<small>iOS and Android devices</small></span><span class="tag">Waiting</span></li>
-        <li><span class="marker"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.5l2.5 2.5L11 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="step">Store review<small>App Store and Google Play</small></span><span class="tag">Waiting</span></li>
-        <li><span class="marker"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.5l2.5 2.5L11 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="step">Live<small>Monitored after launch</small></span><span class="tag">Waiting</span></li>
-      </ol>
-    </aside>
-  </header>
-</div>
-
-<section class="block" id="work">
-  <div class="wrap block-head">
-    <div>
-      <h2>Apps I've shipped</h2>
-      <p class="intro">Production apps for access control, field-service teams, rewards, lifestyle and faith, on iOS and Android.</p>
+    <div class="hero-shots" aria-hidden="true">
+      <img class="h1" src="screens/brompton-1.jpg" alt="">
+      <img class="h2" src="screens/namaz-1.jpg" alt="">
+      <img class="h3" src="screens/dressedup-1.jpg" alt="">
+      <div class="float-card fc1">
+        <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg></span>
+        <div><b>100,000+</b><small>downloads each: Namaz and Brompton</small></div>
+      </div>
+      <div class="float-card fc2">
+        <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <div><b>Live on both stores</b><small>App Store · Google Play</small></div>
+      </div>
     </div>
-    <ul class="work">
-      <li>
-        <span class="dot" aria-hidden="true"></span>
-        <div>
-          <h3>Namaz</h3>
-          <p class="stat">100,000+ downloads on iOS and Android</p><p>Prayer times and Qibla direction for Muslims worldwide. Location-precise prayer time calculations, Qibla compass and local notification alerts. I own it on my own, from features to store releases.</p>
-          <ul class="stack"><li>React Native</li><li>JavaScript</li><li>Redux Toolkit</li><li>Local notifications</li><li>Location</li></ul>
-          <p class="links"><a href="https://apps.apple.com/pk/app/namaz/id6468963819" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=org.tazkia.namaz&amp;hl=en" target="_blank" rel="noopener">Google Play</a></p>
-        </div>
-      </li>
-      <li>
-        <span class="dot" aria-hidden="true"></span>
-        <div>
-          <h3>DressedUp</h3>
-          <p>AI feedback on how you look before a date, an interview or a normal day. Camera capture, OpenAI analysis and in-app purchases.</p>
-          <ul class="stack"><li>React Native</li><li>TypeScript</li><li>Redux Toolkit</li><li>OpenAI</li><li>In-app purchases</li><li>Firebase Cloud Functions</li></ul>
-          <p class="links"><a href="https://apps.apple.com/us/app/dressedup/id6753897358" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.outfitrater.app" target="_blank" rel="noopener">Google Play</a></p>
-        </div>
-      </li>
-      <li>
-        <span class="dot" aria-hidden="true"></span>
-        <div>
-          <h3>5DKey</h3>
-          <p>A digital wallet for virtual building-access cards. Access can be handed out and taken back instantly. Built fully native on both platforms.</p>
-          <ul class="stack"><li>SwiftUI</li><li>SwiftData</li><li>Jetpack Compose</li><li>Kinde</li><li>Safetrust SDK</li><li>REST APIs</li></ul>
-          <p class="links"><a href="https://apps.apple.com/au/app/5dkey/id6463869995" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.sitepics.fivedkey&amp;hl=en" target="_blank" rel="noopener">Google Play</a></p>
-        </div>
-      </li>
-      <li>
-        <span class="dot" aria-hidden="true"></span>
-        <div>
-          <h3>Sitepics</h3>
-          <p>Location-tagged photo management for business teams, contractors and field staff.</p>
-          <ul class="stack"><li>React Native</li><li>JavaScript</li><li>Redux Toolkit</li><li>Camera</li><li>Google Maps</li><li>REST APIs</li></ul>
-          <p class="links"><a href="https://apps.apple.com/au/app/sitepics/id1470026370" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.sitepics&amp;hl=en" target="_blank" rel="noopener">Google Play</a></p>
-        </div>
-      </li>
-      <li>
-        <span class="dot" aria-hidden="true"></span>
-        <div>
-          <h3>Consumer Break</h3>
-          <p>A jigsaw puzzle competition app with sponsored prizes, built at AA'LA Solutions.</p>
-          <ul class="stack"><li>React Native</li><li>Reanimated</li><li>Redux Toolkit</li><li>AdMob</li><li>Firebase push</li><li>Social logins</li><li>Laravel</li></ul>
-          
-        </div>
-      </li>
-    </ul>
+  </div>
+</header>
+
+<section class="section" id="expertise">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What I do</h2>
+      <p>Everything it takes to get a mobile app built, released and kept healthy.</p>
+    </div>
+    <div class="grid-4">
+      <article class="x-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg></div>
+        <h3>React Native and Expo</h3>
+        <p>One TypeScript codebase for iOS and Android, with React Navigation and Reanimated for a smooth feel.</p>
+      </article>
+      <article class="x-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+        <h3>Native iOS</h3>
+        <p>Swift, SwiftUI, UIKit and SwiftData when an app needs to go deeper than React Native can.</p>
+      </article>
+      <article class="x-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16a7 7 0 0114 0v3H5z"/><path d="M8 6l1.5 2.5M16 6l-1.5 2.5"/><circle cx="9.5" cy="13" r=".8" fill="currentColor"/><circle cx="14.5" cy="13" r=".8" fill="currentColor"/></svg></div>
+        <h3>Native Android</h3>
+        <p>Kotlin with Jetpack Compose or XML layouts, built to Google's guidelines.</p>
+      </article>
+      <article class="x-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.6 6.5 19.5l1-6.3L3 8.9 9 8z"/></svg></div>
+        <h3>Store release</h3>
+        <p>App Store and Google Play submission, built for review from day one so there's less back-and-forth.</p>
+      </article>
+      <article class="x-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div>
+        <h3>CI/CD and testing</h3>
+        <p>Codemagic, Fastlane and GitHub Actions for automatic builds. Jest and Detox for tests.</p>
+      </article>
+      <article class="x-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+        <h3>AI features</h3>
+        <p>OpenAI built into real products, like DressedUp's outfit feedback from a single photo.</p>
+      </article>
+      <article class="x-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg></div>
+        <h3>Growth features</h3>
+        <p>Push notifications (FCM, APNs), deep links, in-app purchases, social logins, Google Maps and AdMob.</p>
+      </article>
+      <article class="x-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+        <h3>Backend and APIs</h3>
+        <p>REST and GraphQL APIs, Firebase, Node.js, Laravel and FastAPI when the app needs server work.</p>
+      </article>
+    </div>
   </div>
 </section>
 
-<section class="block" id="approach">
-  <div class="wrap block-head">
-    <div>
-      <h2>How I work</h2>
-      <p class="intro">Most app delays aren't a code problem. They're a release problem.</p>
+<section class="section about" id="about">
+  <div class="wrap">
+    <div class="portrait-wrap">
+      <div class="portrait">
+        <span class="initials">AA</span>
+        <img src="photo.jpg" alt="Amjad Ali" onerror="this.remove()">
+      </div>
+      <div class="portrait-badge"><b>6+ yrs</b><small>shipping mobile apps</small></div>
     </div>
-    <ul class="approach">
-      <li><h3>I own the whole pipeline</h3><p>Architecture, code, testing, CI/CD and store release. One person accountable from start to finish.</p></li>
-      <li><h3>Right tool for each feature</h3><p>I know when React Native is enough and when a feature needs native Swift or Kotlin.</p></li>
-      <li><h3>Built for store review</h3><p>I plan for App Store and Play Store rules from day one, so there's less back-and-forth at submission.</p></li>
-      <li><h3>Fast, stable apps</h3><p>Memory fixes, sensible state management and careful rendering, in React Native and native code.</p></li>
-    </ul>
-  </div>
-</section>
-
-<section class="block">
-  <div class="wrap block-head">
     <div>
-      <h2>What I can do for you</h2>
-      <p class="intro">For a full-time role or a single project.</p>
-    </div>
-    <div class="two-col">
-      <ul class="services">
-        <li>React Native and Expo apps in TypeScript for iOS and Android</li>
-        <li>Native iOS apps in Swift and SwiftUI</li>
-        <li>Native Android apps in Kotlin and Jetpack Compose</li>
-        <li>App Store and Play Store submission and release</li>
-        <li>CI/CD with Codemagic, Fastlane and GitHub Actions</li>
-        <li>Fixes for slow or crashing apps</li>
-        <li>Backend support in Node.js, Laravel, FastAPI and Firebase</li>
+      <h2>I own the whole path from idea to store.</h2>
+      <p>I'm a senior mobile engineer at <strong>AA'LA Solutions</strong> in Lahore, where I've built production apps since 2020. Architecture, state management, testing, CI/CD and release are all part of my job, not someone else's.</p>
+      <p>I know when React Native is enough and when a feature needs native Swift or Kotlin. That's why I've shipped both: <strong>5DKey</strong>, <strong>Verroo</strong> and <strong>Novas</strong> are fully native, while <strong>Namaz</strong> and <strong>DressedUp</strong> run on React Native.</p>
+      <p>Two of my apps have passed <strong>100,000 downloads</strong>: Brompton Bike Hire, and Namaz, which I build and run on my own.</p>
+      <ul class="facts">
+        <li><span>Based in</span><b>Lahore, Pakistan (UTC+5)</b></li>
+        <li><span>Works</span><b>Remote, hybrid or onsite</b></li>
+        <li><span>Education</span><b>BS Computer Science</b></li>
+        <li><span>Languages</span><b>English, Urdu</b></li>
       </ul>
-      <div class="skills">
+    </div>
+  </div>
+</section>
+
+<section class="section projects" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Apps I've shipped</h2>
+      <p>Live products for faith, transport, AI, access control, smart locks and field teams. All on iOS and Android.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" aria-pressed="true" data-filter="all">All apps</button>
+      <button type="button" aria-pressed="false" data-filter="rn">React Native</button>
+      <button type="button" aria-pressed="false" data-filter="native">Native iOS and Android</button>
+      <button type="button" aria-pressed="false" data-filter="ai">AI</button>
+    </div>
+
+    <div class="project-list">
+
+      <article class="project" data-cat="rn">
+        <div class="gallery" tabindex="0" aria-label="Namaz screenshots"><img src="screens/namaz-1.jpg" alt="Namaz app screenshot 1" loading="lazy"><img src="screens/namaz-2.jpg" alt="Namaz app screenshot 2" loading="lazy"><img src="screens/namaz-3.jpg" alt="Namaz app screenshot 3" loading="lazy"></div>
         <div>
-          <h3>Mobile</h3>
-          <ul class="stack"><li>React Native</li><li>Expo</li><li>TypeScript</li><li>Swift</li><li>SwiftUI</li><li>UIKit</li><li>SwiftData</li><li>Kotlin</li><li>Jetpack Compose</li><li>XML layouts</li></ul>
+          <div class="tags"><span class="tag">React Native</span><span class="tag m">Solo project</span></div>
+          <div class="app-title"><img src="screens/namaz-icon.jpg" alt=""><h3>Namaz</h3></div>
+          <p class="what">Prayer times and Qibla direction for Muslims worldwide.</p>
+          <p class="metric"><b>100,000+</b><span>downloads on iOS and Android</span></p>
+          <ul class="points">
+            <li>Prayer times calculated from the user's exact location</li>
+            <li>Qibla direction and local notification alerts for each prayer</li>
+            <li>I run it on my own, from new features to every store release</li>
+          </ul>
+          <p class="stack-label">Built with</p>
+          <ul class="chips"><li>React Native</li><li>JavaScript</li><li>Redux Toolkit</li><li>Local notifications</li><li>Location services</li></ul>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/pk/app/namaz/id6468963819" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small>App Store</span></a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=org.tazkia.namaz" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5l10.3 9.5L4 21.5c-.4-.2-.6-.6-.6-1.1V3.6c0-.5.2-.9.6-1.1z" fill="#2196F3"/><path d="M17.6 8.9L14.3 12 4 2.5c.2-.1.5-.1.8.1l12.8 6.3z" fill="#4CAF50"/><path d="M17.6 15.1L4.8 21.4c-.3.2-.6.2-.8.1L14.3 12l3.3 3.1z" fill="#F44336"/><path d="M21 11.1c.7.4.7 1.4 0 1.8l-3.4 2.2-3.3-3.1 3.3-3.1 3.4 2.2z" fill="#FFC107"/></svg><span><small>Get it on</small>Google Play</span></a>
+          </div>
         </div>
+      </article>
+
+      <article class="project" data-cat="rn">
+        <div class="gallery" tabindex="0" aria-label="Brompton Bike Hire screenshots"><img src="screens/brompton-1.jpg" alt="Brompton Bike Hire screenshot 1" loading="lazy"><img src="screens/brompton-2.jpg" alt="Brompton Bike Hire screenshot 2" loading="lazy"><img src="screens/brompton-3.jpg" alt="Brompton Bike Hire screenshot 3" loading="lazy"></div>
         <div>
-          <h3>App features</h3>
-          <ul class="stack"><li>React Navigation</li><li>Reanimated</li><li>Push notifications (FCM, APNs)</li><li>Deep linking</li><li>Social logins</li><li>In-app purchases</li><li>Google Maps</li><li>Firebase</li><li>AdMob</li><li>OpenAI API</li></ul>
+          <div class="tags"><span class="tag">React Native</span><span class="tag m">Transport</span></div>
+          <div class="app-title"><img src="screens/brompton-icon.jpg" alt=""><h3>Brompton Bike Hire</h3></div>
+          <p class="what">Hire a Brompton folding bike from lockers across the UK.</p>
+          <p class="metric"><b>100,000+</b><span>downloads on Google Play</span></p>
+          <ul class="points">
+            <li>Find a nearby dock and see how many bikes are available</li>
+            <li>Reserve a bike and get a code to unlock it from the dock</li>
+            <li>Return the bike, report a fault and see hire history</li>
+          </ul>
+          <p class="stack-label">Built with</p>
+          <ul class="chips"><li>React Native</li><li>JavaScript</li><li>Maps and location</li><li>REST APIs</li></ul>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/us/app/brompton-bike-hire/id1114500955" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small>App Store</span></a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.absolute.bromptonbikehire" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5l10.3 9.5L4 21.5c-.4-.2-.6-.6-.6-1.1V3.6c0-.5.2-.9.6-1.1z" fill="#2196F3"/><path d="M17.6 8.9L14.3 12 4 2.5c.2-.1.5-.1.8.1l12.8 6.3z" fill="#4CAF50"/><path d="M17.6 15.1L4.8 21.4c-.3.2-.6.2-.8.1L14.3 12l3.3 3.1z" fill="#F44336"/><path d="M21 11.1c.7.4.7 1.4 0 1.8l-3.4 2.2-3.3-3.1 3.3-3.1 3.4 2.2z" fill="#FFC107"/></svg><span><small>Get it on</small>Google Play</span></a>
+          </div>
         </div>
+      </article>
+
+      <article class="project" data-cat="rn ai">
+        <div class="gallery" tabindex="0" aria-label="DressedUp screenshots"><img src="screens/dressedup-1.jpg" alt="DressedUp app screenshot 1" loading="lazy"><img src="screens/dressedup-2.jpg" alt="DressedUp app screenshot 2" loading="lazy"><img src="screens/dressedup-3.jpg" alt="DressedUp app screenshot 3" loading="lazy"></div>
         <div>
-          <h3>State and data</h3>
-          <ul class="stack"><li>Redux Toolkit</li><li>React Query</li><li>Context API</li><li>GraphQL</li><li>REST APIs</li></ul>
+          <div class="tags"><span class="tag">React Native</span><span class="tag m">AI</span></div>
+          <div class="app-title"><img src="screens/dressedup-icon.jpg" alt=""><h3>DressedUp</h3></div>
+          <p class="what">AI feedback on your look before a date, an interview or a normal day.</p>
+          <ul class="points">
+            <li>Take a photo and get instant feedback from OpenAI</li>
+            <li>In-app purchases for premium feedback</li>
+            <li>Server logic on Firebase Cloud Functions</li>
+          </ul>
+          <p class="stack-label">Built with</p>
+          <ul class="chips"><li>React Native</li><li>TypeScript</li><li>Redux Toolkit</li><li>Camera</li><li>OpenAI</li><li>In-app purchases</li><li>Firebase Cloud Functions</li></ul>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/us/app/dressedup/id6753897358" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small>App Store</span></a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.outfitrater.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5l10.3 9.5L4 21.5c-.4-.2-.6-.6-.6-1.1V3.6c0-.5.2-.9.6-1.1z" fill="#2196F3"/><path d="M17.6 8.9L14.3 12 4 2.5c.2-.1.5-.1.8.1l12.8 6.3z" fill="#4CAF50"/><path d="M17.6 15.1L4.8 21.4c-.3.2-.6.2-.8.1L14.3 12l3.3 3.1z" fill="#F44336"/><path d="M21 11.1c.7.4.7 1.4 0 1.8l-3.4 2.2-3.3-3.1 3.3-3.1 3.4 2.2z" fill="#FFC107"/></svg><span><small>Get it on</small>Google Play</span></a>
+          </div>
         </div>
+      </article>
+
+      <article class="project" data-cat="native">
+        <div class="gallery" tabindex="0" aria-label="5DKey screenshots"><img src="screens/5dkey-1.jpg" alt="5DKey app screenshot 1" loading="lazy"><img src="screens/5dkey-2.jpg" alt="5DKey app screenshot 2" loading="lazy"></div>
         <div>
-          <h3>Testing and release</h3>
-          <ul class="stack"><li>Detox</li><li>Jest</li><li>React Testing Library</li><li>Codemagic</li><li>Fastlane</li><li>GitHub Actions</li><li>Crashlytics</li></ul>
+          <div class="tags"><span class="tag">Swift / SwiftUI</span><span class="tag">Kotlin / Compose</span><span class="tag m">Access control</span></div>
+          <div class="app-title"><img src="screens/5dkey-icon.jpg" alt=""><h3>5DKey</h3></div>
+          <p class="what">A digital wallet for virtual building-access cards.</p>
+          <ul class="points">
+            <li>Access cards can be handed out and taken back instantly</li>
+            <li>Built fully native on both platforms, not cross-platform</li>
+            <li>Integrates the Safetrust SDK with delegated authentication through Kinde</li>
+          </ul>
+          <p class="stack-label">Built with</p>
+          <ul class="chips"><li>SwiftUI</li><li>SwiftData</li><li>Jetpack Compose</li><li>SharedPreferences</li><li>Kinde</li><li>Safetrust SDK</li><li>REST APIs</li></ul>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/au/app/5dkey/id6463869995" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small>App Store</span></a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.sitepics.fivedkey" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5l10.3 9.5L4 21.5c-.4-.2-.6-.6-.6-1.1V3.6c0-.5.2-.9.6-1.1z" fill="#2196F3"/><path d="M17.6 8.9L14.3 12 4 2.5c.2-.1.5-.1.8.1l12.8 6.3z" fill="#4CAF50"/><path d="M17.6 15.1L4.8 21.4c-.3.2-.6.2-.8.1L14.3 12l3.3 3.1z" fill="#F44336"/><path d="M21 11.1c.7.4.7 1.4 0 1.8l-3.4 2.2-3.3-3.1 3.3-3.1 3.4 2.2z" fill="#FFC107"/></svg><span><small>Get it on</small>Google Play</span></a>
+          </div>
         </div>
+      </article>
+
+      <article class="project" data-cat="native">
+        <div class="gallery" tabindex="0" aria-label="Verroo and Novas screenshots"><img src="screens/locks-1.jpg" alt="Verroo and Novas screenshot 1" loading="lazy"><img src="screens/locks-2.jpg" alt="Verroo and Novas screenshot 2" loading="lazy"><img src="screens/locks-3.jpg" alt="Verroo and Novas screenshot 3" loading="lazy"><img src="screens/locks-4.jpg" alt="Verroo and Novas screenshot 4" loading="lazy"></div>
         <div>
-          <h3>Web and backend</h3>
-          <ul class="stack"><li>React</li><li>Tailwind CSS</li><li>Node.js</li><li>FastAPI</li><li>Laravel</li><li>Firebase</li><li>Git</li></ul>
+          <div class="tags"><span class="tag">Swift</span><span class="tag">Kotlin</span><span class="tag m">Bluetooth smart locks</span></div>
+          <div class="app-title"><img src="screens/verroo-icon.jpg" alt=""><img src="screens/novas-icon.jpg" alt="" style="margin-left:-8px"><h3>Verroo and Novas</h3></div>
+          <p class="what">Two smart lock apps that open doors and gates over Bluetooth.</p>
+          <ul class="points">
+            <li>Lock and unlock nearby doors from the phone</li>
+            <li>Share digital keys with other users, with date and time limits</li>
+            <li>PIN and hands-free unlock modes, plus battery and access history</li>
+            <li>Built fully native on iOS and Android</li>
+          </ul>
+          <p class="stack-label">Built with</p>
+          <ul class="chips"><li>Swift</li><li>Kotlin</li><li>Bluetooth Low Energy</li><li>REST APIs</li></ul>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/us/app/verroo/id1448896600" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Verroo · Download on the</small>App Store</span></a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=au.com.verroo.android" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5l10.3 9.5L4 21.5c-.4-.2-.6-.6-.6-1.1V3.6c0-.5.2-.9.6-1.1z" fill="#2196F3"/><path d="M17.6 8.9L14.3 12 4 2.5c.2-.1.5-.1.8.1l12.8 6.3z" fill="#4CAF50"/><path d="M17.6 15.1L4.8 21.4c-.3.2-.6.2-.8.1L14.3 12l3.3 3.1z" fill="#F44336"/><path d="M21 11.1c.7.4.7 1.4 0 1.8l-3.4 2.2-3.3-3.1 3.3-3.1 3.4 2.2z" fill="#FFC107"/></svg><span><small>Verroo · Get it on</small>Google Play</span></a>
+          </div>
+          <div class="stores" style="margin-top:10px">
+            <a class="store" href="https://apps.apple.com/au/app/novas/id1568226689" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Novas · Download on the</small>App Store</span></a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=au.com.verroo.novas.android" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5l10.3 9.5L4 21.5c-.4-.2-.6-.6-.6-1.1V3.6c0-.5.2-.9.6-1.1z" fill="#2196F3"/><path d="M17.6 8.9L14.3 12 4 2.5c.2-.1.5-.1.8.1l12.8 6.3z" fill="#4CAF50"/><path d="M17.6 15.1L4.8 21.4c-.3.2-.6.2-.8.1L14.3 12l3.3 3.1z" fill="#F44336"/><path d="M21 11.1c.7.4.7 1.4 0 1.8l-3.4 2.2-3.3-3.1 3.3-3.1 3.4 2.2z" fill="#FFC107"/></svg><span><small>Novas · Get it on</small>Google Play</span></a>
+          </div>
         </div>
+      </article>
+
+      <article class="project" data-cat="rn">
+        <div class="gallery" tabindex="0" aria-label="Sitepics screenshots"><img src="screens/sitepics-1.jpg" alt="Sitepics app screenshot 1" loading="lazy"><img src="screens/sitepics-2.jpg" alt="Sitepics app screenshot 2" loading="lazy"><img src="screens/sitepics-3.jpg" alt="Sitepics app screenshot 3" loading="lazy"></div>
+        <div>
+          <div class="tags"><span class="tag">React Native</span><span class="tag m">Field-service SaaS</span></div>
+          <div class="app-title"><img src="screens/sitepics-icon.jpg" alt=""><h3>Sitepics</h3></div>
+          <p class="what">Location-tagged photo management for business teams, contractors and field staff.</p>
+          <ul class="points">
+            <li>Photos are pinned to where they were taken, on Google Maps</li>
+            <li>Teams share and organise site photos in one place</li>
+          </ul>
+          <p class="stack-label">Built with</p>
+          <ul class="chips"><li>React Native</li><li>JavaScript</li><li>Redux Toolkit</li><li>Camera</li><li>Google Maps</li><li>REST APIs</li></ul>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/au/app/sitepics/id1470026370" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small>App Store</span></a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.sitepics" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5l10.3 9.5L4 21.5c-.4-.2-.6-.6-.6-1.1V3.6c0-.5.2-.9.6-1.1z" fill="#2196F3"/><path d="M17.6 8.9L14.3 12 4 2.5c.2-.1.5-.1.8.1l12.8 6.3z" fill="#4CAF50"/><path d="M17.6 15.1L4.8 21.4c-.3.2-.6.2-.8.1L14.3 12l3.3 3.1z" fill="#F44336"/><path d="M21 11.1c.7.4.7 1.4 0 1.8l-3.4 2.2-3.3-3.1 3.3-3.1 3.4 2.2z" fill="#FFC107"/></svg><span><small>Get it on</small>Google Play</span></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <h3 class="more-title">More work</h3>
+    <div class="more-grid">
+      <article class="mini">
+        <div class="mini-ic kinde"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 015 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0012 2z"/></svg></div>
+        <div>
+          <h4>Kinde SDK <span>Open source</span></h4>
+          <p>Helped build and maintain Kinde's sign-in SDKs for React Native, iOS and Android: login flows, platform fixes and a smoother developer setup.</p>
+          <p class="mini-links"><a href="https://github.com/kinde-oss/kinde-react-native-sdk-0-6x" target="_blank" rel="noopener">React Native</a><a href="https://github.com/kinde-oss/kinde-sdk-ios" target="_blank" rel="noopener">iOS</a><a href="https://github.com/kinde-oss/kinde-sdk-android" target="_blank" rel="noopener">Android</a></p>
+        </div>
+      </article>
+      <article class="mini">
+        <img class="mini-ic" src="screens/industrii-icon.jpg" alt="">
+        <div>
+          <h4>Industrii <span>React Native</span></h4>
+          <p>Short paid surveys for healthcare professionals, with instant payouts to their bank.</p>
+          <p class="mini-links"><a href="https://apps.apple.com/us/app/industrii/id1558394050" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.industrii.industrii" target="_blank" rel="noopener">Google Play</a></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills and tools</h2>
+      <p>What I use day to day, grouped by where it fits in the app.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group"><h3>Mobile</h3><ul class="chips"><li>React Native</li><li>Expo</li><li>Swift</li><li>SwiftUI</li><li>UIKit</li><li>Kotlin</li><li>Jetpack Compose</li><li>XML layouts</li><li>Native modules</li></ul></div>
+      <div class="skill-group"><h3>Languages</h3><ul class="chips"><li>TypeScript</li><li>JavaScript</li><li>Swift</li><li>Kotlin</li><li>C++</li><li>Python</li><li>Java</li></ul></div>
+      <div class="skill-group"><h3>App features</h3><ul class="chips"><li>React Navigation</li><li>Reanimated</li><li>Push (FCM, APNs)</li><li>Deep linking</li><li>In-app purchases</li><li>Social logins</li><li>Google Maps</li><li>AdMob</li><li>OpenAI</li></ul></div>
+      <div class="skill-group"><h3>State and data</h3><ul class="chips"><li>Redux Toolkit</li><li>React Query</li><li>Context API</li><li>GraphQL</li><li>REST APIs</li><li>SwiftData</li><li>Firebase</li></ul></div>
+      <div class="skill-group"><h3>Testing and release</h3><ul class="chips"><li>Jest</li><li>Detox</li><li>React Testing Library</li><li>Codemagic</li><li>Fastlane</li><li>GitHub Actions</li><li>Crashlytics</li><li>App Store and Play Console</li></ul></div>
+      <div class="skill-group"><h3>Web, backend and workflow</h3><ul class="chips"><li>React</li><li>Tailwind CSS</li><li>Node.js</li><li>Laravel</li><li>FastAPI</li><li>Git</li><li>Jira</li><li>Agile / Scrum</li><li>Code reviews</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="journey">
+  <div class="wrap" style="display:block">
+    <div class="section-head">
+      <h2>My journey</h2>
+      <p>Where I've worked and what I've owned.</p>
+    </div>
+    <div class="journey">
+      <div class="j-item now">
+        <time>Aug 2020 – Present</time>
+        <h3>Senior React Native Developer / Mobile App Developer</h3>
+        <p class="org">AA'LA Solutions · Lahore</p>
+        <ul>
+          <li>Deliver production mobile and web apps end to end, from architecture to App Store and Google Play release</li>
+          <li>Build native iOS (SwiftUI, UIKit) and Android (Kotlin, Jetpack Compose) apps where React Native isn't enough</li>
+          <li>Set up Codemagic CI/CD to automate builds, tests and store deployments</li>
+          <li>Built a shared library of components and native modules used across multiple client apps</li>
+          <li>Mentor interns and junior developers on React Native</li>
+        </ul>
+      </div>
+      <div class="j-item now">
+        <time>Part-time · Remote</time>
+        <h3>React Native Developer</h3>
+        <p class="org">Namaz app</p>
+        <ul>
+          <li>Build and run the app on my own, alongside my full-time role</li>
+          <li>Grew it to 100,000+ downloads on iOS and Android</li>
+        </ul>
+      </div>
+      <div class="j-item">
+        <time>Jul 2019 – Sep 2019</time>
+        <h3>Intern, Data Mining and Machine Learning</h3>
+        <p class="org">NESCOM · Islamabad</p>
+        <ul><li>Worked on a data science project using machine learning in Python</li></ul>
+      </div>
+      <div class="j-item">
+        <time>2016 – 2020</time>
+        <h3>BS Computer Science</h3>
+        <p class="org">Bahria University · Lahore</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="block" id="experience">
-  <div class="wrap block-head">
+<section class="section contact" id="contact">
+  <div class="wrap">
     <div>
-      <h2>Experience</h2>
-      <p class="intro">6+ years building and shipping mobile apps.</p>
+      <h2>Let's work together</h2>
+      <p class="intro">Hiring a mobile engineer, or need an app built, fixed or shipped? Send a message and I'll tell you honestly what I'd do next.</p>
+      <ul class="c-list">
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><small>Email</small><a href="mailto:amjadalikhokhar999@gmail.com">amjadalikhokhar999@gmail.com</a></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg></span><div><small>Phone / WhatsApp</small><a href="tel:+923354978834">+92 335 4978834</a></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 110-4.2 2.1 2.1 0 010 4.2zm1.8 13.1H3.6V9h3.6v11.5z"/></svg></span><div><small>LinkedIn</small><a href="https://www.linkedin.com/in/amjadali-mobile" target="_blank" rel="noopener">linkedin.com/in/amjadali-mobile</a></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 015 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0012 2z"/></svg></span><div><small>GitHub</small><a href="https://github.com/Amjad-Ali-999" target="_blank" rel="noopener">github.com/Amjad-Ali-999</a></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></span><div><small>Location</small><b>Lahore, Pakistan · Remote worldwide</b></div></li>
+      </ul>
     </div>
-    <ul class="timeline">
-      <li>
-        <time>Aug 2020 – now</time>
-        <div>
-          <h3>Senior React Native Developer / Mobile App Developer</h3>
-          <p class="org">AA'LA Solutions, Lahore</p>
-          <p>I deliver production mobile and web apps end to end. I set up CI/CD, build shared components used across client projects, and mentor interns and junior developers on React Native.</p>
-        </div>
-      </li>
-      <li>
-        <time>Part-time, remote</time>
-        <div>
-          <h3>React Native Developer</h3>
-          <p class="org">Namaz app</p>
-          <p>I build and maintain Namaz on my own alongside my full-time job, from new features to App Store and Play Store releases. It has grown to 100,000+ downloads.</p>
-        </div>
-      </li>
-      <li>
-        <time>Jul – Sep 2019</time>
-        <div>
-          <h3>Intern, Data Mining and Machine Learning</h3>
-          <p class="org">National Engineering and Scientific Commission (NESCOM), Islamabad</p>
-          <p>Worked on a data mining and data science project using machine learning algorithms in Python and Jupyter Notebook.</p>
-        </div>
-      </li>
-      <li>
-        <time>2016 – 2020</time>
-        <div>
-          <h3>BS Computer Science</h3>
-          <p class="org">Bahria University</p>
-        </div>
-      </li>
-    </ul>
+
+    <form class="card" id="contact-form">
+      <div class="row">
+        <label>Full name<input name="name" required autocomplete="name"></label>
+        <label>Email address<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <label>What's it about?
+        <select name="subject">
+          <option>Full-time role</option>
+          <option>Contract or freelance project</option>
+          <option>Fixing or finishing an existing app</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label>Message<textarea name="message" required placeholder="Tell me about the role or the app."></textarea></label>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p class="form-note">This opens your email app with the message filled in.</p>
+    </form>
   </div>
 </section>
 
-<div class="wrap">
-  <section class="contact" id="contact">
-    <h2>Hiring a mobile engineer, or need an app built?</h2>
-    <p>Send me a message and we'll set up a free 20-minute call. I'll look at what you have and tell you honestly what I'd do next.</p>
-    <div class="actions">
-      <a class="btn primary" href="mailto:amjadalikhokhar999@gmail.com?subject=Free%2020-minute%20call">Book a free call</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/amjadali-mobile" target="_blank" rel="noopener">Message on LinkedIn</a>
-    </div>
-    <dl>
-      <dt>Email</dt><dd><a href="mailto:amjadalikhokhar999@gmail.com">amjadalikhokhar999@gmail.com</a></dd>
-      <dt>Phone</dt><dd><a href="tel:+923354978834">+92 335 4978834</a></dd>
-      <dt>GitHub</dt><dd><a href="https://github.com/Amjad-Ali-999" target="_blank" rel="noopener">github.com/Amjad-Ali-999</a></dd>
-      <dt>Based in</dt><dd>Lahore, Pakistan (UTC+5)</dd>
-      <dt>Languages</dt><dd>English (professional), Urdu (native)</dd>
-    </dl>
-  </section>
-  <footer>© <span id="year">2026</span> Amjad Ali</footer>
-</div>
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Amjad Ali</span>
+    <span><a href="https://www.linkedin.com/in/amjadali-mobile" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/Amjad-Ali-999" target="_blank" rel="noopener">GitHub</a></span>
+  </div>
+</footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // One load sequence: the release moves through each stage and ends live.
-  (function () {
-    var steps = Array.prototype.slice.call(document.querySelectorAll('#pipeline li'));
-    var labels = { done: ['Passed', 'Passed', 'Approved', 'Live'], active: 'Running' };
-    function finish(i) {
-      steps[i].classList.remove('active');
-      steps[i].classList.add('done');
-      steps[i].querySelector('.tag').textContent = labels.done[i];
-    }
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) { steps.forEach(function (_, i) { finish(i); }); return; }
-    var i = 0;
-    function next() {
-      if (i >= steps.length) return;
-      var el = steps[i];
-      el.classList.add('active');
-      el.querySelector('.tag').textContent = i === 2 ? 'In review' : labels.active;
-      var idx = i;
-      setTimeout(function () { finish(idx); i++; next(); }, idx === 2 ? 1300 : 700);
-    }
-    setTimeout(next, 500);
-  })();
+  // Filters
+  var buttons = document.querySelectorAll('.filters button');
+  var projects = document.querySelectorAll('.project');
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-filter');
+      buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      projects.forEach(function (p) {
+        var cats = p.getAttribute('data-cat').split(' ');
+        p.hidden = !(f === 'all' || cats.indexOf(f) !== -1);
+      });
+    });
+  });
+
+  // Contact form opens the visitor's email app
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = new FormData(e.target);
+    var body = d.get('message') + '\n\n' + d.get('name') + '\n' + d.get('email');
+    window.location.href = 'mailto:amjadalikhokhar999@gmail.com?subject=' +
+      encodeURIComponent(d.get('subject') + ' — from ' + d.get('name')) +
+      '&body=' + encodeURIComponent(body);
+  });
 </script>
 </body>
 </html>
